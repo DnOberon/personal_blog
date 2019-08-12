@@ -1,0 +1,7 @@
+baseURL = ""
+languageCode = "en-us"
+theme = "basics"
+title = "Not Your Language"
+
+[params]
+    author = "John Darrington"
