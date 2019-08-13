@@ -8,7 +8,7 @@ title: "CosmosDB + Gremlin + TypeScript = :|"
   .gist-data {max-height: 500px}
 </style>
 
-Note that I’m writing this article after only two weeks of working with Gremlin and CosmosDB. What I’m writing about could be dead wrong. I honestly hope so, because my job would be much easier if I’m missing something and what little goodwill I had towards Azure before this experience might be restored.
+I’m writing this article after only two weeks of working with Gremlin and CosmosDB. What I’m writing about could be dead wrong. I honestly hope so, because my job would be much easier if I’m missing something and what little goodwill I had towards Azure before this experience might be restored.
 
 This article assumes that you have an intermediate knowledge of TypeScript and a basic knowledge of Gremlin and CosmosDB. I won’t be stopping to explain the benefits of TypeScript or what Gremlin is and how it works, but I have included links to resources that do. If you’re feeling rusty, feel free to brush up using the following articles.
 
@@ -22,7 +22,7 @@ On to business.
 * **[Gremlin](https://tinkerpop.apache.org/gremlin.html)** - Graph Traversal Machine and Language (how you communicate with some graph databases)
 * **[CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)** - Microsoft Azure’s multi-model database—specifically, its graph database offering
 * **[TypeScript](https://www.typescriptlang.org/)** - JavaScript’s sane younger brother 
-* **[Gremlin-JavaScript](http://tinkerpop.apache.org/docs/current/reference/#gremlin-javascript)** - Apache’s managed Gremlin-JavaScript implementation (putting a link to it)
+* **[Gremlin-JavaScript](http://tinkerpop.apache.org/docs/current/reference/#gremlin-javascript)** - Apache’s managed Gremlin-JavaScript implementation 
 
 <br>
 # TypeScript and Gremlin-JavaScript
@@ -42,7 +42,7 @@ I’ve corrected the most obvious errors for you, and have made a majority of th
 
 You have two significant hurdles to overcome when dealing with CosmosDB through the Gremlin-JavaScript library:
 
-#### _**CosmosDB does not support Gremlin bytecode commands (smaller headings)**_
+#### _**CosmosDB does not support Gremlin bytecode commands **_
 
 Gremlin works best when it can take the user commands and translate them into Gremlin bytecode. This helps avoid issues that can come about because of malformed or unescaped strings, and it allows the developer to use steps and traversal methods that would be too difficult or impossible otherwise. If you want more info, you can read all about Gremlin bytecode and why it’s a Very Good Thing™.
 
@@ -64,7 +64,7 @@ In the spirit of abstraction and longevity of the application, I’d suggest cod
 
 [GraphSON](http://tinkerpop.apache.org/docs/3.4.1/dev/io/#graphson) is like JSON but for graph databases. When an SDK (in this case the Gremlin-JavaScript library) communicates with a Gremlin enabled graph database the data shared is serialized into GraphSON.
 
-Simple..
+Simple.
 
 There are three versions of GraphSON to date. Changes from [1.0](http://tinkerpop.apache.org/docs/3.4.1/dev/io/#graphson-1d0) to [2.0](http://tinkerpop.apache.org/docs/3.4.1/dev/io/#graphson-2d0) were very drastic, changes from 2.0 to [3.0](http://tinkerpop.apache.org/docs/3.4.1/dev/io/#graphson-3d0) not so much. Most modern database providers use either GraphSON 2.0 or 3.0 and the majority of SDK’s can serialize/deserialize 2.0 and 3.0 messages.
 
