@@ -3,6 +3,7 @@ date: "2019-08-12"
 tags: ["cosmosDB", "azure", "gremlin", "javascript", "node.js", "graphson"]
 title: "CosmosDB + Gremlin + TypeScript = :|"
 ---
+
 <style type="text/css">
   .gist-file
   .gist-data {max-height: 500px}
@@ -12,28 +13,29 @@ I’m writing this article after only two weeks of working with Gremlin and Cosm
 
 This article assumes that you have an intermediate knowledge of TypeScript and a basic knowledge of Gremlin and CosmosDB. I won’t be stopping to explain the benefits of TypeScript or what Gremlin is and how it works, but I have included links to resources that do. If you’re feeling rusty, feel free to brush up using the following articles.
 
-* [Getting Started with Gremlin](https://tinkerpop.apache.org/docs/3.1.0-incubating/tutorials-getting-started.html)
-* [TypeScript in 5 minutes](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
-* [CosmosDB Node.js Quickstart(Gremlin)](https://docs.microsoft.com/en-us/azure/cosmos-db/create-graph-nodejs)
+- [Getting Started with Gremlin](https://tinkerpop.apache.org/docs/3.1.0-incubating/tutorials-getting-started.html)
+- [TypeScript in 5 minutes](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
+- [CosmosDB Node.js Quickstart(Gremlin)](https://docs.microsoft.com/en-us/azure/cosmos-db/create-graph-nodejs)
 
 On to business.
 
 # The Players
-* **[Gremlin](https://tinkerpop.apache.org/gremlin.html)** - Graph Traversal Machine and Language (how you communicate with some graph databases)
-* **[CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)** - Microsoft Azure’s multi-model database—specifically, its graph database offering
-* **[TypeScript](https://www.typescriptlang.org/)** - JavaScript’s sane younger brother 
-* **[Gremlin-JavaScript](http://tinkerpop.apache.org/docs/current/reference/#gremlin-javascript)** - Apache’s managed Gremlin-JavaScript implementation 
+
+- **[Gremlin](https://tinkerpop.apache.org/gremlin.html)** - Graph Traversal Machine and Language (how you communicate with some graph databases)
+- **[CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)** - Microsoft Azure’s multi-model database—specifically, its graph database offering
+- **[TypeScript](https://www.typescriptlang.org/)** - JavaScript’s sane younger brother
+- **[Gremlin-JavaScript](http://tinkerpop.apache.org/docs/current/reference/#gremlin-javascript)** - Apache’s managed Gremlin-JavaScript implementation
 
 <br>
 # TypeScript and Gremlin-JavaScript
 
 Before we start using CosmosDB, we need to correct the Gremlin-JavaScript package’s TypeScript type declarations. Don’t skip this section or you’ll learn what happens when type declarations don’t match up with their functionality counterparts.
 
-The [@types/gremlin](https://www.npmjs.com/package/@types/gremlin)  package contains incorrect declarations and is currently incomplete. I’m in the process of contributing to the official package, but that is a slow process. In the meantime, the best option is to use [Declaration Merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html) to augment and correct current type declarations. The snippet below is my current, corrected type declaration file.
+The [@types/gremlin](https://www.npmjs.com/package/@types/gremlin) package contains incorrect declarations and is currently incomplete. I’m in the process of contributing to the official package, but that is a slow process. In the meantime, the best option is to use [Declaration Merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html) to augment and correct current type declarations. The snippet below is my current, corrected type declaration file.
 
 <script src="https://gist.github.com/DnOberon/83db638e8171c47a5c67b761954e8bbc.js"></script>
 
-<sub>*This is where my knowledge of TypeScript could use a little help. The least painful way I’ve found to augment declarations is to merge modules, so I don’t have to report and then import Gremlin from different locations. This does have a drawback: you can’t modify any of the constructors and might have to instantiate objects with an empty ID field. This generally isn’t a problem, since the majority of classes have extremely simple constructors, but that won’t always be the case.*</sub>
+<sub>_This is where my knowledge of TypeScript could use a little help. The least painful way I’ve found to augment declarations is to merge modules, so I don’t have to report and then import Gremlin from different locations. This does have a drawback: you can’t modify any of the constructors and might have to instantiate objects with an empty ID field. This generally isn’t a problem, since the majority of classes have extremely simple constructors, but that won’t always be the case._</sub>
 
 I’ve corrected the most obvious errors for you, and have made a majority of the changes for CosmosDB to work, but these are probably not all the declaration changes you’ll have to make for your project. Don’t just plug this in and expect that all functionality has been covered. Be careful and pay attention.
 
@@ -42,25 +44,24 @@ I’ve corrected the most obvious errors for you, and have made a majority of th
 
 You have two significant hurdles to overcome when dealing with CosmosDB through the Gremlin-JavaScript library:
 
-#### _**CosmosDB does not support Gremlin bytecode commands **_
+#### _**CosmosDB does not support Gremlin bytecode commands**_
 
 Gremlin works best when it can take the user commands and translate them into Gremlin bytecode. This helps avoid issues that can come about because of malformed or unescaped strings, and it allows the developer to use steps and traversal methods that would be too difficult or impossible otherwise. If you want more info, you can read all about Gremlin bytecode and why it’s a Very Good Thing™.
 
 Without bytecode support, the [CosmosDB website](https://docs.microsoft.com/en-us/azure/cosmos-db/create-graph-nodejs) and [example packages](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js) (even the [Gremlin-Javascript reference documentation](http://tinkerpop.apache.org/docs/current/reference/#_submitting_scripts_4)!) would have you believe that the only way to accomplish communication and queries against Gremlin is through raw script submission.
 
-This is incorrect. 
+This is incorrect.
 
-Included in the Gremlin-JavaScript package is a [nifty set of classes](https://github.com/apache/tinkerpop/blob/master/gremlin-javascript/src/main/javascript/gremlin-javascript/lib/process/translator.js#L24) for taking normal, fluent, traversal steps—minus the termination steps—and converting bytecode commands to a Gremlin/groovy script. 
+Included in the Gremlin-JavaScript package is a [nifty set of classes](https://github.com/apache/tinkerpop/blob/master/gremlin-javascript/src/main/javascript/gremlin-javascript/lib/process/translator.js#L24) for taking normal, fluent, traversal steps—minus the termination steps—and converting bytecode commands to a Gremlin/groovy script.
 
 Note: Microsoft does not support all traversal steps; check out [this page](https://docs.microsoft.com/en-us/azure/cosmos-db/gremlin-support#gremlin-steps) for supported steps.
 
-[Microsoft says](https://feedback.azure.com/forums/263030-azure-cosmos-db/suggestions/33632779-support-gremlin-bytecode-to-enable-the-fluent-api) they’ve begun work on accepting bytecode and that a public preview will be available in December 2019, but I won’t hold my breath for it becoming quickly available afterwards. 
+[Microsoft says](https://feedback.azure.com/forums/263030-azure-cosmos-db/suggestions/33632779-support-gremlin-bytecode-to-enable-the-fluent-api) they’ve begun work on accepting bytecode and that a public preview will be available in December 2019, but I won’t hold my breath for it becoming quickly available afterwards.
 
-In the spirit of abstraction and longevity of the application, I’d suggest coding your app using the bytecode functionality and methods, and then using the script translator. You’ll thank me if/when CosmosDB enables bytecode support or you decide to find a much better alternative graph database provider. If you’re especially talented, you could probably make a fantastic abstraction layer that makes switching back and forth a breeze! 
+In the spirit of abstraction and longevity of the application, I’d suggest coding your app using the bytecode functionality and methods, and then using the script translator. You’ll thank me if/when CosmosDB enables bytecode support or you decide to find a much better alternative graph database provider. If you’re especially talented, you could probably make a fantastic abstraction layer that makes switching back and forth a breeze!
 
 <br>
 #### _**CosmosDB outputs GraphSON 1.0**_
-
 
 [GraphSON](http://tinkerpop.apache.org/docs/3.4.1/dev/io/#graphson) is like JSON but for graph databases. When an SDK (in this case the Gremlin-JavaScript library) communicates with a Gremlin enabled graph database the data shared is serialized into GraphSON.
 
@@ -82,5 +83,3 @@ I’m in the process of writing a [GraphSON 1.0 reader/serializer](https://www.n
 I hope this article does not age well. Microsoft has stated they’re working on accepting Gremlin bytecode commands, and I hope that actually happens. As CosmosDB evolves, I hope the graph database offering will become more modern, outputting GraphSON 2.0. Most of all, I hope that Microsoft understands that these shortcomings are what’s keeping them from being as competitive in their cloud graph databases as they should be.
 
 My recommendation? Avoid CosmosDB’s graph database service, for now, and try any of these [alternative solutions](http://tinkerpop.apache.org/providers.html).
-
-
