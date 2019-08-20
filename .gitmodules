@@ -8,6 +8,3 @@
 [submodule "themes/tale"]
 	path = themes/tale
 	url = https://github.com/EmielH/tale-hugo.git
-[submodule "themes/basics"]
-	path = themes/basics
-	url = https://github.com/arjunkrishnababu96/basics.git
