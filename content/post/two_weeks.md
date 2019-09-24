@@ -4,7 +4,6 @@ tags: ["management"]
 title: "I'm Giving My Two Weeks Notice"
 ---
 
-
 With these words we lost our project lead and arguably the most skilled and experienced of the developers currently at the company. Losing a team member in any project has an immediate impact to both productivity and team morale. In this case, it felt like the meteor that wiped out the dinosaurs had just dropped into the middle of our team.
 
 We had been tasked with replacing a legacy system in charge of managing the products available in our various e-commerce platforms. This was a massive undertaking, affecting at least three separate platforms and another two internal systems. With no out-of-the-box solution that could meet all our needs, we had decided to start work on our own product management system.
@@ -36,4 +35,3 @@ You’re going to wake up with nagging questions or concerns about the project �
 Find someone to listen to you as well. Be open and honest with them about the state of the project and how you feel about it. Share concerns and, if appropriate, ask for advice. Don’t underestimate or undervalue the insight that others might have regarding your work.
 
 My last bit of advice is this: You’ve never screwed up so badly that you can’t learn from your mistakes. Take the time to look back and, like me, figure out what you could have done differently. You will become both a better developer and a better human being because of it.
-
