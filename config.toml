@@ -1,4 +1,4 @@
-baseurl = ""
+baseurl = "https://notyourlanguage.com/"
 languageCode = "en-GB"
 ignoreFiles = [ "\\.scss" ]
 title = "GolangCode"
@@ -12,10 +12,9 @@ theme="site-theme"
 	description = "A Library of Go Snippets"
 	bio = "John Darrington"
 	author = "John Darrington"
-	twitter = "golangcode"
 	enableRSS = true
-	enableDisqus = true
-	disqusShortname = "golangcode"
+	enableDisqus = false
+	disqusShortname = "notyourlanguage"
 
 [social]
 	rss-squared = "/index.xml"

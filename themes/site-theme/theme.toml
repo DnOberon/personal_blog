@@ -8,8 +8,8 @@ features = ["blog", "disqus", "duoshuo",  "baidu tongji", "rss", "syntax highlig
 min_version = 0.18
 
 [author]
-  name = "nodejh"
-  homepage = "https://github.com/nodejh"
+  name = "John Darrington"
+  homepage = "https://github.com/dnoberon"
 
 [[original]]
   name = "Cactus"

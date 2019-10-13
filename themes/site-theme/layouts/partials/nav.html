@@ -3,7 +3,7 @@
 <div class="pre-nav-header">
 {{ if not .IsHome }}
 	<a href='{{ .Site.BaseURL }}'>
-    	<img id="avatar" src="{{ .Site.BaseURL }}logo.jpg" height="44" width="44" alt="Golang Gopher logo" />
+    	<img id="avatar" src="{{ .Site.BaseURL }}logo.jpg" style="height: 44px !important; width: 44px !important" height="44" width="44" alt="Avatar" />
 		Not Your Language
 	</a>
 {{ end }}
@@ -42,7 +42,5 @@
 </nav>
 
 {{ if ne .Type "post" }}
-    <div class="nav-ads-area other-pages" role="complementary">
-        <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CK7D623I&placement=golangcodecom" id="_carbonads_js"></script>
-    </div>
+
 {{ end }}
