@@ -3,12 +3,6 @@ date: "2019-08-12"
 tags: ["cosmosDB", "azure", "gremlin", "javascript", "node.js", "graphson"]
 title: "CosmosDB + Gremlin + TypeScript = :|"
 ---
-
-<style type="text/css">
-  .gist-file
-  .gist-data {max-height: 500px}
-</style>
-
 I’m writing this article after only two weeks of working with Gremlin and CosmosDB. What I’m writing about could be dead wrong. I honestly hope so, because my job would be much easier if I’m missing something and what little goodwill I had towards Azure before this experience might be restored.
 
 This article assumes that you have an intermediate knowledge of TypeScript and a basic knowledge of Gremlin and CosmosDB. I won’t be stopping to explain the benefits of TypeScript or what Gremlin is and how it works, but I have included links to resources that do. If you’re feeling rusty, feel free to brush up using the following articles.
@@ -33,7 +27,110 @@ Before we start using CosmosDB, we need to correct the Gremlin-JavaScript packag
 
 The [@types/gremlin](https://www.npmjs.com/package/@types/gremlin) package contains incorrect declarations and is currently incomplete. I’m in the process of contributing to the official package, but that is a slow process. In the meantime, the best option is to use [Declaration Merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html) to augment and correct current type declarations. The snippet below is my current, corrected type declaration file.
 
-<script src="https://gist.github.com/DnOberon/83db638e8171c47a5c67b761954e8bbc.js"></script>
+```
+import * as gremlin from 'gremlin'
+
+// The @types/gremlin package is out of date and/or incomplete. This file allows
+// us to extend the gremlin types package so that Typescript can provide adequate
+// typing information and linting. PLEASE VERIFY THAT THE ORIGINAL PACKAGE CONTAINS
+// THE BEHAVIOR YOU'RE ATTEMPTING TO ADD.
+declare module "gremlin" {
+    export namespace driver {
+        // auth was originally undeclared and its functions included in the driver namespace
+        // however, the original gremlin package has the auth functions in a sub-folder of
+        // driver, and as such must be declared as a nested namespace.
+        namespace auth {
+
+            class Authenticator {
+                constructor(options?: any);
+                evaluateChallenge(challenge: string): any;
+            }
+
+            class PlainTextSaslAuthenticator extends Authenticator {
+                constructor(username: string, password: string, authzid?: string);
+                evaluateChallenge(challenge: string): Promise<any>;
+            }
+        }
+    }
+
+    export namespace process {
+        interface Traverser {
+            object: any
+        }
+
+        interface Translator {
+            of(traversalSource: string): void;
+        }
+    }
+
+    export namespace structure {
+        // CosmosDB returns an uuid for the ID field, not an integer. I've overridden
+        // each return object type I'm currently using with the id field. Keep in mind
+        // that you can't override constructors from within this file. If you need
+        // that behavior, you'll have to find a better solution
+        interface Element {
+            id: string
+            label: string
+            value: any
+        }
+
+        interface Vertex {
+            id: string
+            label: string
+            properties?: VertexProperty[]
+        }
+
+        interface Edge {
+            id: string
+            label: string
+            inV: Vertex
+            outV: Vertex
+            properties?: Property[]
+        }
+
+        interface VertexProperty {
+            id: string
+            label: string
+            value: any
+            properties?: Property[]
+        }
+
+        interface Property {
+            key: string
+            value: any
+        }
+
+        // io suffered from the same problem as the auth package, the matching functionality
+        // lived in a sub-folder in process. Declaring the functions in a nested namespace
+        // solves this problem.
+        namespace io {
+
+            // these types are only needed if you're using the GraphSON v1 reader/writer
+            // directly. You shouldn't need these declarations if you've decided to brave the NPM package.
+            class GraphSONReader {
+                constructor(options?: any);
+                read(obj: any): any;
+            }
+
+            class GraphSONWriter {
+                constructor(options?: any);
+                adaptObject(value: any): any;
+                write(obj: any): string;
+            }
+
+            class TypeSerializer {
+            }
+
+            class VertexSerializer extends TypeSerializer {
+                deserialize(obj: any): structure.Vertex
+                serialize(item: structure.Vertex): any
+                canBeUsedFor(value: object): boolean
+            }
+        }
+
+    }
+}
+```
 
 <sub>_This is where my knowledge of TypeScript could use a little help. The least painful way I’ve found to augment declarations is to merge modules, so I don’t have to report and then import Gremlin from different locations. This does have a drawback: you can’t modify any of the constructors and might have to instantiate objects with an empty ID field. This generally isn’t a problem, since the majority of classes have extremely simple constructors, but that won’t always be the case._</sub>
 

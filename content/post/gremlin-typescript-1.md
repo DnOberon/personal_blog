@@ -42,11 +42,47 @@ If it helps, think of the traversal as a kind of transaction, with the Graph Tra
 
 Let’s create a new class called `GremlinAdapter` and add a single property `g`. The type of `g` is `process.GraphTraversalSource` - just like the `g` in the Gremlin query you saw above. _(You \_could_ use something other than `g` but we’re going to follow common gremlin naming practice.)\_
 
-<script src="https://gist.github.com/DnOberon/0ec88afef1f9f39b11ad41947f3b74a5.js"></script>
+```
+import { process } from "gremlin"
+
+class GremlinAdapter {
+    public g: process.GraphTraversalSource
+}
+```
 
 <br>
 We’ll create the constructor next - its only job is to create a valid GraphTraversalSource and set the `g` property. I’m following parts of the Gremlin-Javascript [example](http://tinkerpop.apache.org/docs/current/reference/#gremlin-javascript) which you can visit if you’re still a little confused.
-<script src="https://gist.github.com/DnOberon/bd02a94afffa9fc9a6af13a1b7645286.js"></script>
+```
+import { driver, process, structure } from "gremlin"
+
+// we're going to shorten this class down a bit. You can see where this
+// comes into play in the Gremlin documentation
+const traversal = process.AnonymousTraversalSource.traversal
+
+class GremlinAdapter {
+    public g: process.GraphTraversalSource
+
+    public constructor() {
+        let config: any = {}
+        config.traversalsource = "g"
+
+        // We don't discuss it in the article, but here is an example of what you'd
+        // need to do in order to have the GraphTraversalSource you create be able
+        // to communicate to a secured Gremlin endpoint
+        if (needsAuth) {
+            const authenticator = new driver.auth.PlainTextSaslAuthenticator("user", "key")
+            config.rejectUnauthorized = true
+            config.authenticator = authenticator
+        }
+
+        // withRemote specifies that this source is not local and should be considered
+        // a network resource
+        this.g = traversal().withRemote( new driver.DriverRemoteConnection(
+                `wss://url:port`, 
+                config))
+    }
+}
+```
 
 <br>
 # Add Vertex
@@ -63,7 +99,22 @@ The equivalent JavaScript code is not much different.
 
 We’ll create a method on our `GremlinAdapter` class named `addVertex` ( I like to pattern the names of my classes and methods after their gremlin counterparts when possible). The caller of `addVertex` must specify a label, or the type of vertex that should be created, and provide an object full of properties. This function will not return a value yet.
 
-<script src="https://gist.github.com/DnOberon/09ae3039460177736ee4bb44e3eb31f3.js"></script>
+```
+ public async addVertex(type: string, input: any) {
+        let write = this.g.addV(type)
+
+        for (let key in input) {
+            if (input.hasOwnProperty(key)) {
+                if (typeof input[key] === 'object') {
+                    write = write.property(key, JSON.stringify(input[key]))
+                    continue
+                }
+
+                write = write.property(key, `${input[key]}`)
+            }
+        }
+    }
+```
 
 For ease of use we’ll accept `any` as the parameter. I will forgo any validation or type checking in the interest of time and maintaining focus on the parts of the method that truly matter. _(We’re also not going to discuss setting anything other than a string as the value for a property. If you would like information on how to do that, see the bottom of the article for additional resources.)_
 
@@ -71,7 +122,33 @@ In order to complete and submit our Gremlin query we must call a [terminal step]
 
 In this case there should only be a single vertex record returned from this traversal - our newly created vertex. We use `ResultSet`’s 'first()' method to pull the first record, and then cast that to the `structure.Vertex` type included in the Gremlin-JavaScript package. I’d suggest running any additional checks on data structure and existence here as opposed to the caller of the `addVertex` method.
 
-<script src="https://gist.github.com/DnOberon/cb4ad01f100b570bd8d255b46a288900.js"></script>
+```
+  public async addVertex(type: string, input: any): Promise<structure.Vertex> {
+        let write = this.g.addV(type)
+
+        for (let key in input) {
+            if (input.hasOwnProperty(key)) {
+                if (typeof input[key] === 'object') {
+                    write = write.property(key, JSON.stringify(input[key]))
+                    continue
+                }
+
+                write = write.property(key, `${input[key]}`)
+            }
+        }
+
+        return new Promise((resolve, reject) => {
+           write.toList() 
+                .then((results) => {
+                    let resultSet: driver.ResultSet = new driver.ResultSet(results)
+
+                    let created: structure.Vertex = <structure.Vertex><unknown>resultSet.first()
+                    resolve(created)
+                })
+                .catch((err) => reject(err))
+        })
+    }
+```
 
 # Usage
 

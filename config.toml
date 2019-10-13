@@ -1,8 +1,10 @@
-baseURL = ""
+baseURL = "https://notyourlanguage.com"
 languageCode = "en-us"
-theme = "basics"
+theme = "base16"
 title = "Not Your Language"
 
 [params]
     author = "John Darrington"
     github = "DnOberon"
+
+pygmentsuseclasses = true

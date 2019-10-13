@@ -1,6 +1,6 @@
 ---
 date: "2019-04-02"
-title: "You Found Me"
+title: "About Me"
 ---
 
 I’m John Darrington. You can find me on [LinkedIn](https://www.linkedin.com/in/johnwdarrington/) and [Github](https://github.com/dnoberon). You can learn about who I am and what I care about here – on my personal site.
