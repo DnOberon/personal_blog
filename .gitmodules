@@ -2,6 +2,3 @@
 	path = public
 	url = git@github.com:DnOberon/DnOberon.github.io.git
 	branch = master
-[submodule "themes/basics"]
-	path = themes/basics
-	url = https://github.com/DnOberon/basics
