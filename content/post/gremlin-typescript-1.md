@@ -7,7 +7,6 @@ title: "TypeScript and Gremlin: Part 1"
 <style type="text/css">
   .gist-file
   .gist-data {max-height: 700px}
-
 </style>
 
 If you’ve read [CosmosDB + Gremlin + TypeScript = :|](https://notyourlanguage.com/post/cosmos_db/) - you’ll know that I’ve recently begun working with graph databases. Specifically graph databases that communicate using [Gremlin](https://tinkerpop.apache.org/gremlin.html).
