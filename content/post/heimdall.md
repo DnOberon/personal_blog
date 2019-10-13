@@ -16,11 +16,11 @@ Waxing poetic (and very arrogant) I think we can consider ourselves gods over ou
 
 I was recently developing a .NET console application that interacted with a hidden, third-party application. My application instructed the hidden process to initiate a data exports. It was here, after an export started running that I ran across a few problems.
 
-First, the hidden application output its own logs into stdout and stderr, polluting my logs and making it hard to follow the application’s progress.
+**First**, the hidden application output its own logs into stdout and stderr, polluting my logs and making it hard to follow the application’s progress.
 
-Second, the hidden application had a tendency to hang unexpectedly. Restarting the export process wasn’t a problem, the hidden application would start where it left off, but there was no easy way for my application to know that the other process had frozen.
+**Second**, the hidden application had a tendency to hang unexpectedly. Restarting the export process wasn’t a problem, the hidden application would start where it left off, but there was no easy way for my application to know that the other process had frozen.
 
-Third, the hidden application must have a memory leak because when the export runs long enough, if it’s a big enough batch of data, the host system would eventually run out of memory. This breaks both the export process and my application, everything grinds to a halt.
+**Third**, the hidden application must have a memory leak because when the export runs long enough, if it’s a big enough batch of data, the host system would eventually run out of memory. This breaks both the export process and my application, everything grinds to a halt.
 
 I needed a tool that could watch both applications, filter logs, monitor system resources, and restart the application it was watching in case of program hang.
 
@@ -106,7 +106,6 @@ func addressesAndInterfaces(file *os.File) {
 </br>
 </br>
 ### Using Heimdall
-
 #### Installation
 
 If you have the Go toolchain installed you can simply run
