@@ -2,7 +2,10 @@
 date: "2019-10-11"
 tags: ["cli", "golang", "console", "norse", "asgard"]
 title: "Heimdall"
-draft: "true"
+draft: "false"
+summary: "The Norse god [Heimdall](https://www.britannica.com/topic/Heimdall) was the watchman of the Norse gods. He dwelt at the entry of Asgard and stood guard over Bifrost, the Rainbow Bridge, which connected Asgard to Earth. Through Heimdall and Bifrost the Norse gods kept watch over and interacted with Earth and the humans living there.
+
+Waxing poetic (and very arrogant) I think we can consider ourselves gods over our programs. We watch over them from afar, interacting with them through a bifrost of command lines and gui’s. We care about their health and performance and we strive to insure they fulfill their function."
 ---
 
 # Heimdall The God

@@ -1,10 +1,22 @@
-baseURL = "https://notyourlanguage.com"
-languageCode = "en-us"
-theme = "base16"
-title = "Not Your Language"
+baseurl = ""
+languageCode = "en-GB"
+ignoreFiles = [ "\\.scss" ]
+title = "GolangCode"
+theme="site-theme"
+
+[outputs]
+	home = ["HTML", "RSS", "JSON"]
 
 [params]
-    author = "John Darrington"
-    github = "DnOberon"
+	name = "Not Your Language"
+	description = "A Library of Go Snippets"
+	bio = "John Darrington"
+	author = "John Darrington"
+	twitter = "golangcode"
+	enableRSS = true
+	enableDisqus = true
+	disqusShortname = "golangcode"
 
-pygmentsuseclasses = true
+[social]
+	rss-squared = "/index.xml"
+	github-squared = "https://github.com/dnoberon"

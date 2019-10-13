@@ -1,0 +1,53 @@
+<noscript>
+```go
+package main
+
+import "fmt"
+
+func main() {
+    about := `GolangCode is a site with an aim to provide quick answers to those 
+            everyday code problems, ones which you know deep down but just require 
+            a quick google anyway. A how-to guide of sorts, with less teaching more
+            showing of code - great for people in full flow, coding away.`
+
+    fmt.Printf("%s", about)
+}
+```
+</noscript>
+
+<template id="cmd-1">
+$
+</template>
+
+<template id="cmd-2">
+echo 'package main
+
+import "fmt"
+
+func main() {
+    fmt.Printf("%s", "GolangCode is a site with an aim to provide quick answers to those everyday code problems, ones which you know deep down but just require a quick google anyway. A how-to guide of sorts, with less teaching more showing of code - great for people in full flow, coding away.\n")
+}
+' >> about.go
+
+$
+</template>
+
+<template id="cmd-3">
+clear
+</template>
+
+<template id="cmd-4">
+go run about.go
+</template>
+
+<template id="cmd-5">
+GolangCode is a site with an aim to provide quick answers to those everyday code problems, ones which you know deep down but just require a quick google anyway. A how-to guide of sorts, with less teaching more showing of code - great for people in full flow, coding away.
+
+$
+</template>
+
+<textarea id="cmd-prompt" class="cmd-prompt" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly>Loading...</textarea>
+
+<br><br>
+
+{{ partial "single-about.html" . }}

@@ -1,0 +1,11 @@
+
+<!-- white bg (fade out) -->
+<div class="search-form-bg"></div>
+
+<form action="{{ "search" | absURL }}/" class="search-form {{ if and (ne .Title "Search") (ne .IsHome true) }}hidden{{ else }}non-close{{ end }}">
+    <input type="text" 
+           id="search-query" 
+           name="s" 
+           placeholder="e.g. &nbsp;Middleware, &nbsp;Buffer, &nbsp;Install Go...">
+    <button>Search</button>
+</form>

@@ -3,12 +3,6 @@ date: "2019-08-20"
 tags: ["gremlin", "javascript", "node.js", "typescript"]
 title: "TypeScript and Gremlin: Part 1"
 ---
-
-<style type="text/css">
-  .gist-file
-  .gist-data {max-height: 700px}
-</style>
-
 If you’ve read [CosmosDB + Gremlin + TypeScript = :|](https://notyourlanguage.com/post/cosmos_db/) - you’ll know that I’ve recently begun working with graph databases. Specifically graph databases that communicate using [Gremlin](https://tinkerpop.apache.org/gremlin.html).
 
 This article demonstrates a TypeScript pattern for communicating with a graph database through the Gremlin query language. This article assumes you have an intermediate knowledge of TypeScript and know how to create, compile, and run a TypeScript project. In the interest of article length we will only be implementing a record creation method.

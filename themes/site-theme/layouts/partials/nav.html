@@ -1,0 +1,48 @@
+{{ $url := replace .Permalink .Site.BaseURL "" }}
+
+<div class="pre-nav-header">
+{{ if not .IsHome }}
+	<a href='{{ .Site.BaseURL }}'>
+    	<img id="avatar" src="{{ .Site.BaseURL }}logo.jpg" height="44" width="44" alt="Golang Gopher logo" />
+		Not Your Language
+	</a>
+{{ end }}
+</div>
+
+<nav class="main-nav" role="navigation">
+	{{ if not .IsHome }}
+		<a href='{{ .Site.BaseURL }}' class="main-nav-home-link">
+			<i class="icon-left"></i>&nbsp;
+			{{ with .Site.Params.home }}{{ . }}{{ else }}Home{{ end }}
+		</a>
+	{{ end }}
+	
+	<a href="{{ .Site.BaseURL }}tags" class="nav-tags-button">
+		{{ with .Site.Params.tags }}{{ . }}{{ else }}Tags{{ end }}
+	</a>
+	<a href='{{ .Site.BaseURL }}about'>
+		{{ with .Site.Params.about }}{{ . }}{{ else }}About{{ end }}
+	</a>
+
+	{{ range $key, $val := .Site.Params.Links }}
+		<a href="{{ $val }}">{{ $key }}</a>
+	{{ end }}
+
+	{{ if .Site.Params.enableRSS }}
+		<a class="nav-subscribe-button js-nav-subscribe-button" href="{{ .Site.RSSLink }}">
+			<i class="icon-rss"></i>&nbsp;
+			{{ with .Site.Params.subscribe }}{{ . }}{{ else }}RSS{{ end }}
+		</a>
+	{{ end }}
+
+	<a href='{{ .Site.BaseURL }}search' class="cta js-nav-search-button">
+		<i class="icon-search"></i>&nbsp;
+		Search
+	</a>
+</nav>
+
+{{ if ne .Type "post" }}
+    <div class="nav-ads-area other-pages" role="complementary">
+        <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CK7D623I&placement=golangcodecom" id="_carbonads_js"></script>
+    </div>
+{{ end }}

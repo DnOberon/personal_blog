@@ -1,0 +1,46 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
+<script>
+   window.jQuery || document.write('<script src="{{ .Site.BaseURL }}js/jquery-3.4.1.min.js"><\/script>');
+</script>
+
+<!-- Important to have before scripts, as ga() is used in scripts -->
+<script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-65854395-1','auto');ga('send','pageview')
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+{{ if eq .Title "Search" }}
+    <script src="{{ .Site.BaseURL }}js/fuse-3.4.5.min.js"></script>
+    <script src="{{ .Site.BaseURL }}js/jquery.mark-8.11.1.min.js"></script>
+    <script src="{{ "js/search.js" | absURL }}"></script>
+{{ end }}
+
+<script src="{{ .Site.BaseURL }}js/main.js?v={{ now.Unix }}" async defer></script>
+
+<script src="{{ .Site.BaseURL }}js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+{{ range .Site.Params.customJS }}<script src="{{ $.Site.BaseURL }}{{ . }}"></script>{{ end }}
+
+<!-- Disqus: Blog Comments -->
+<script type="text/javascript" async defer>
+    if (document.getElementById("disqus_thread") !== null) {
+        var disqus_shortname = '{{ .Site.Params.disqusShortname }}';
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    }
+</script>
+
+{{ if eq .Type "post" }}
+    <!-- Twitter: Follow Button -->
+    <script src="https://platform.twitter.com/widgets.js" crossorigin="anonymous" async defer charset="utf-8"></script>
+{{ end }}
+{{ if eq .Title "About" }}
+    <!-- Twitter: Follow Button -->
+    <script src="https://platform.twitter.com/widgets.js" crossorigin="anonymous" async defer charset="utf-8"></script>
+{{ end }}

@@ -1,0 +1,23 @@
+
+<div class="search-loader">
+    <div class="loader"></div>
+</div>
+
+<div id="search-results"></div>
+
+<div class="search-no-results">
+    <i class="icon-compass"></i>
+    <p>Checkmate! &nbsp;We found nothing...</p>
+</div>
+
+<!-- this template is sucked in by search.js and appended to the search-results div above. So editing here will adjust style -->
+<script id="search-result-template" type="text/x-js-template">
+    <div id="summary-${key}" class="search-block">
+        <h3><a href="${link}">${title}</a></h3>
+        ${ isset img }<div class="search-feature-image"><a href="${link}"><img src="/img/${img}" alt="${title}"></a></div>${ end }
+        <div class="search-content-block">
+            <p>${snippet}</p>
+        </div>
+        ${ isset tags }<small>${tags}</small>${ end }
+    </div>
+</script>

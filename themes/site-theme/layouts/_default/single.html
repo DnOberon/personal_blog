@@ -1,0 +1,105 @@
+{{ partial "head.html" . }}
+<body>
+   {{ partial "nav.html" . }}
+
+    <section id="wrapper" role="main">
+
+        {{ partial "search-form.html" . }}
+
+        <article class="post">
+            <header>
+
+                {{ if ne .Title "Search" }}
+                    <!-- Page Title Shown on all Pages -->
+                    <h1>{{ .Title }}</h1>
+                {{ end }}
+
+
+                {{ if eq .Type "post" }}
+                    <h2 class="headline">
+                        <div>
+                            <time datetime="{{ .Date.UTC.Format "2006-01-02T15:04:05-0700" }}" title="{{ .Date.UTC.Format "2006-01-02T15:04:05-0700" }}">
+                                {{ .Date.Format "Jan 2, 2006" }}
+                            </time>
+                            &middot;
+                            <span class="word-count">
+                                {{ if lt 1 .WordCount }}{{ .WordCount }} words{{ else }}{{ .WordCount }} word{{ end }}
+                            </span>
+                            &middot;
+                            <span class="reading-time">
+                                {{ if eq 1 .ReadingTime }}{{ .ReadingTime }} minute read{{ else }}{{ .ReadingTime }} minutes read{{ end }}
+                            </span>
+                        </div>
+                        <div class="tags">
+                            {{ with .Params.tags }}
+                                {{ if ge (len .) 1 }}
+                                    {{ range . }}
+                                        <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">#{{ . }}</a>
+                                    {{ end }}
+                                {{ end }}
+                            {{ end}}
+                        </div>
+                    </h2>
+                {{ end }}
+            </header>
+
+            {{ if eq .Type "post" }}
+                <div class="nav-ads-area single-page" role="complementary">
+                    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CK7D623I&placement=golangcodecom" id="_carbonads_js"></script>
+                </div>
+            {{ end }}
+
+            <section id="post-body">
+                {{ .Content }}
+                {{ if eq .Title "Search" }} {{ partial "search.html" }} {{ end }}
+                {{ if eq .Title "About" }} {{ partial "about.html" }} {{ end }}
+            </section>
+        </article>
+
+        {{ if eq .Type "post" }}
+            
+            {{ range first 1 (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+                {{ $.Scratch.Set "has_related" true }}
+            {{ end }}
+
+            {{ if $.Scratch.Get "has_related" }}
+                <div class="related-content">
+                    <h3>Related Posts</h3>
+                    <ul>
+                        {{ $num_to_show := .Site.Params.related_content_limit | default 3 }}
+                            {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+                            <li>
+                                <a href="{{ .RelPermalink }}">
+                                    {{ .Title }}
+                                </a>
+                                &ndash; 
+                                <time datetime="{{ .Date.UTC.Format "2006-01-02T15:04:05-0700" }}">
+                                    {{ .Date.Format "Jan 2, 2006" }}
+                                </time>
+                                <br> 
+                                <small>{{ .Summary | plainify | htmlUnescape }}</small>
+                            </li>
+                        {{ end }}
+                    </ul>
+                </div>
+            {{ end }}
+
+
+            <i class="icon-ellipsis page-separator" aria-hidden="true"></i>
+
+            {{ partial "single-about.html" . }}
+
+            <p>See something which isn't right? You can contribute to this page <a href="https://github.com/eddturtle/golangcode-site" target="_blank">on GitHub</a> or just let us know in the comments below - Thanks for reading!</p>
+
+            {{ if .Site.Params.enableDisqus }}
+                {{ partial "disqus.html" . }}
+            {{ end }}
+        {{ end }}
+
+        {{ partial "footer.html" . }}
+    </section>
+
+    {{ partial "js.html" . }}
+
+</body>
+</html>
