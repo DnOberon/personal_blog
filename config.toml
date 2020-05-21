@@ -1,7 +1,7 @@
-baseurl = "https://notyourlanguage.com/"
+baseurl = "https://www.notyourlanguage.com/"
 languageCode = "en-GB"
 ignoreFiles = [ "\\.scss" ]
-title = "GolangCode"
+title = "Not Your Language"
 theme="site-theme"
 
 [outputs]
