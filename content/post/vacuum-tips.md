@@ -1,7 +1,7 @@
 ---
 date: "2021-12-29"
 tags: ["development", "advice"]
-title: "Tips For Developing In A Vacuum"
+title: "Tips for Developing in a Vacuum"
 draft: "false"
 summary: "Learn how to be successful even when you're the only developer on a project."
 ---
