@@ -1,5 +1,5 @@
 ---
-date: "2020-4-10"
+date: "2020-04-10"
 tags: ["cli", "golang", "aws", "discord", "github"]
 title: "Go Discord Bot with Github Actions and ECS"
 draft: "false"
