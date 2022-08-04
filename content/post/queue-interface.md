@@ -2,7 +2,7 @@
 date: "2022-07-30"
 tags: ["development", "nodejs", "interfaces", "queue", "event-driven"]
 title: "Simple Message Queue Interface with Node.js and Typescript"
-draft: "false"
+draft: "true"
 summary: "An explanation and examples of a simple message queue processing interface in Node.js using Typescript"
 ---
 
