@@ -2,7 +2,7 @@
 date: "2023-04-15"
 tags: ["development", "advice", "microservices"]
 title: "Should We Do Microservices?"
-draft: "false"
+draft: "true"
 summary: "A reply to a colleague concerning the adoption of microservices in our workplace."
 ---
 
