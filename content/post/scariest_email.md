@@ -49,3 +49,4 @@ If you are in a similar position as I was - and you can safely do so without ris
 I am not naive enough to think everyone will have that same opportunity, or have the same bosses I do. I am lucky enough that those who I penned the email to, while disappointed, understood and didn’t try to convince me I was wrong.  But if you can, you *must* make a change in your life like mine before it becomes too late and you’ve either lost what you value the most, or have killed any desire to work in an industry that once inspired you.
 
 I’m here if you need to talk.
+
