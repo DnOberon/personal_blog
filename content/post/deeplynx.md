@@ -2,7 +2,7 @@
 date: "2025-03-01"
 tags: ["development", "advice", "project-management"]
 title: "Leaving INL and DeepLynx"
-draft: "true"
+draft: "false"
 summary: "After six years I will be leaving the Idaho National Laboratory and moving on. I reflect a bit on my time there, particularly on the open-source project DeepLynx"
 ---
 
