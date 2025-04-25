@@ -65,7 +65,7 @@ I would like to share some hope though - some advice for both those who are curr
 #### Advice for working with a Rockstar Developer
 1. **Encourage Documentation and Understanding**: This often equates to encouraging the Rockstar to _slow down_. Oftentimes they're moving so fast that no one knows what's going on, being written, or being accomplished but them. Make an effort to push for documentation, knowledge sharing sessions, and *gasp* pair programming sessions if need be.
 2. **Share the Cognitive Load:** If you can, you need to make the Rockstar share the burden they're carrying alone. Everyone is trying to do what's best for the business.  Your mileage may vary here, and each person is different so I can't give you more advice than a general push to encourage the Rockstar see you as someone who can help.
-3. **Unify the Team:** You all need to work together to gather and unify the team. You'll need to become a competent Sous Chef - willing and able to pull from the Rockstar's plate, but succeeding where they fail by then delegating to your team
+3. **Unify the Team:** You all need to work together to gather and unify the team. You'll need to become a competent Sous Chef - willing and able to pull from the Rockstar's plate, and ensuring that you delegate to your other team members.
 
 #### Advice for being a Rockstar Developer
 1. **Your ultimate goal should be to stop being a Rockstar**: Every action you should be taken from the time you realize you're in this position until the end of your tenure should be in service of spreading the load and building your software kitchen to make this a thing of the past.
