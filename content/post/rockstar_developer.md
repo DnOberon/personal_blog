@@ -20,7 +20,7 @@ In a team setting they can often be seen taking work away from slower developers
 
 ## How did I find out I was a Rockstar?
 
-Once I became a Rockstar, I think I always knew that's what I was. I tried very hard not to be arrogant or proud about it - but I knew deep down that trajectory I was on was one that meant I was becoming indispensable to the projects I worked on. I constantly told how great of a job I was doing, and how important I was to various aspects of work. It's not the people giving me praise's fault I was a Rockstar though - their actions were more of a symptom of the problem, not the cause of it. To them, things were getting done because of me and that needed to be rewarded - all the while I kept burrowing deeper and deeper into the roots of these projects like a tick.
+Once I became a Rockstar, I think I always knew that's what I was. I tried very hard not to be arrogant or proud about it - but I knew deep down that trajectory I was on was one that meant I was becoming indispensable to the projects I worked on. I was constantly told how great of a job I was doing, and how important I was to various aspects of work. It's not the people giving me praise's fault I was a Rockstar though - their actions were more of a symptom of the problem, not the cause of it. To them, things were getting done because of me and that needed to be rewarded - all the while I kept burrowing deeper and deeper into the roots of these projects like a tick.
 
 What finally made me admit that I had been a Rockstar however, wasn't some moment of deep introspection or another person calling me out on my behavior. No, what made me finally realize and fully accept that I had been a Rockstar Developer, was working professionally with _another_ Rockstar Developer.
 
@@ -34,7 +34,7 @@ While I won't go through the entire structure, I want to focus on a few points. 
 #### Chef de Cuisine (Head Chef) & Sous Chef (Deputy Chef)
 These two are the primary leaders of a kitchen. While the Chef De Cuisine typically focuses less on cooking and more on managerial duties, both they and the Sous Chef often "get their hands dirty" so to speak and help out where required. They are experienced in all realms of the kitchen and could step into any role if necessary.
 
-This is the team role that a Rockstar Developer oftentimes finds themselves fulfilling first - being a  head responsible for the working of the software "kitchen" and held accountable for the quality of the dishes. I feel like most Rockstar's start off innocently - being put into roles where their large amount of experience and skills could be put to good as
+This is the team role that a Rockstar Developer oftentimes finds themselves fulfilling first - being a  head responsible for the working of the software "kitchen" and held accountable for the quality of the dishes. I feel like most Rockstar's start off innocently - being put into roles where their large amount of experience and skills could be put to good use.
 
 #### Chef de Partie (Station Chef)
 Station Chefs have a specific area, or deliverable type for which they are responsible. Often you'll have Chefs in charge of sauces, grills, general meats, and vegetables. These chefs are have specialized knowledge and skills, as well as entire teams underneath them to fulfill the responsibilities of their roles (in bigger kitchens).
@@ -68,9 +68,9 @@ I would like to share some hope though - some advice for both those who are curr
 3. **Unify the Team:** You all need to work together to gather and unify the team. You'll need to become a competent Sous Chef - willing and able to pull from the Rockstar's plate, and ensuring that you delegate to your other team members.
 
 #### Advice for being a Rockstar Developer
-1. **Your ultimate goal should be to stop being a Rockstar**: Every action you should be taken from the time you realize you're in this position until the end of your tenure should be in service of spreading the load and building your software kitchen to make this a thing of the past.
-2. **Delegate:** and not just the boring stuff! You need to consistently delegate a large amount of the deliverables coming your way to your team - including the *fun* or *difficult* parts. Your team won't grow unless you challenge them, and if you take all the hurdles on yourself you leave no room for anyone to grow.
-3. **Learn how to Trust:** This is obviously easier said then done - but you _must_ learn how to trust your team. I strongly believe that a large percentage of Rockstars are that way because they lack trust in _anyone_ including _themselves_. Whole blog articles could be written on how to accomplish this, and maybe I will, but you might need to do your own research on how to best accomplish this for yourself.
+1. **Your ultimate goal should be to stop being a Rockstar**: Every action you take from the time you realize you're in this position until the end of your tenure should be in service of spreading the load and building your software kitchen to make this a thing of the past.
+2. **Delegate:** and not just the boring stuff! You need to consistently delegate a large number of the deliverables coming your way to your team - including the *fun* or *difficult* parts. Your team won't grow unless you challenge them, and if you take all the hurdles on yourself you leave no room for anyone to grow.
+3. **Learn how to Trust:** This is obviously easier said then done - but you _must_ learn how to trust your team. I strongly believe that a large percentage of Rockstars are that way because they lack trust in _anyone_ including _themselves_. Whole blog articles could be written on how to achieve this, and maybe I will, but you might need to do your own research on how to best accomplish this for yourself.
 4. **Let the Organization Stumble:** This is not going to be easy, but you might need to let your organization stumble a few times without you fixing things. You need to show them how dangerous that situation was before, and that they need to help you build the _team_ that will fulfill these roles.
 
 
