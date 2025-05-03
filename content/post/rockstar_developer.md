@@ -7,7 +7,7 @@ summary: "This is a difficult article for me to write. I'm admitting something t
 ---
 
 
-This is a difficult article for me to write. I'm admitting something to the entire internet - and it's tied to my real name. I also know there are former colleagues and current friends that follow my blog and that heartfelt confessions might feel like a cheap apology for previous transgressions. It is what is however - and I feel like I have valuable insight to give the wider world regarding the phenomenon of the "Rockstar Developer".
+This is a difficult article for me to write. I'm admitting something to the entire internet - and it's tied to my real name. I also know there are former colleagues and current friends that follow my blog and that heartfelt confessions might feel like a cheap apology for previous transgressions. It is what it is however - and I feel like I have valuable insight to give the wider world regarding the phenomenon of the "Rockstar Developer".
 
 There's a lot of definitions of what exactly a Rockstar Developer is floating around. I'd like to add mine, hoping its simplicity captures the essence of the problem without drawing assumptions about the people who currently fit this mold.
 
