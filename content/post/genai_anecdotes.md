@@ -15,9 +15,9 @@ Neither of us were that familiar with javascript (rusty systems programmers) so 
 
 CoPilot decided that we wanted to rewrite this using `for...in` and did some weird, incorrect version of pulling the index. This becomes even worse when you learn that `for...in` *doesn't guarantee order* as it iterates arbitrarily. My partner was skilled enough to realize it didn't look right - but instead of going to documentation, he choose to try and redo the prompt to correct the output.
 
-It seems like it's now the default to give these models unlimited chances to get something right and then promptly forget how much effort it took to get a correct answer out of it when faced with the next problem.  I have no idea what model he was using - and honestly it doesn't matter,  I've observed this pattern of behavior when users were interacting with ChatGPT, Cursor etc.
+It seems like it's now the default to give these models unlimited chances to get something right and then promptly forget how much effort it took to get a correct answer out of it when faced with the next problem.  I have no idea what model he was using - and honestly it doesn't matter as I've observed this pattern of behavior when users were interacting with ChatGPT, Cursor etc.
 
-Please note, I don't consider the other developer a poor engineer - but I'm seeing and more of this kind of behavior when writing code/debugging and it's frustrating. I found a correct answer in < 2 minutes of searching documentation, my partner was going on 6-7 minutes before I pulled the plug and suggested we move on.
+Please note, I don't consider the other developer a poor engineer - but I'm seeing more and more of this kind of behavior when writing code/debugging and it's frustrating. I found a correct answer in < 2 minutes of searching documentation, my partner was going on 6-7 minutes before I pulled the plug and suggested we move on.
 
 
 ### Argo Workflows
