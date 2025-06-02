@@ -2,7 +2,7 @@
 date: "2025-05-23"
 tags: ["development", "genai", "copilot"]
 title: "Some Personal Anecdotes About Developing with GenAI"
-draft: "false"
+draft: "true"
 summary: "These are a collection of my _personal_ experiences with GenAI and the people who use them in various settings. Draw whatever conclusion you want from this article - but please, use your own mind to arrive at said conclusion - don't let GenAI summarize and synthesize it for you."
 ---
 These are a collection of my _personal_ experiences with GenAI and the people who use them in various settings. Draw whatever conclusion you want from this article - but please, use your own mind to arrive at said conclusion - don't let GenAI summarize and synthesize it for you.
