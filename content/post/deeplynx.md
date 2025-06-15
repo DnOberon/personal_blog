@@ -1,12 +1,12 @@
 ---
 date: "2025-03-01"
 tags: ["development", "advice", "project-management"]
-title: "Leaving INL and DeepLynx"
-draft: "true"
-summary: "After six years I will be leaving the Idaho National Laboratory and moving on. I reflect a bit on my time there, particularly on the open-source project DeepLynx"
+title: "Leaving The Lab and DeepLynx"
+draft: "false"
+summary: "After six years I will be leaving my current workplace and moving on. I reflect a bit on my time there, particularly on the open-source project DeepLynx"
 ---
 
-This week I announced my resignation from my current position as Software Architect at the Idaho National Laboratory. The major factor in my decision to leave INL,  was that they recently decided to announce a [return to office (RTO) mandate](https://www.eastidahonews.com/2025/02/inl-directs-all-6400-employees-to-return-to-work-on-site/).
+This week I announced my resignation from my current position as Software Architect at DOE national lab. The major factor in my decision to leave was that they recently decided to announce a return to office (RTO) mandate.
 
 I was debating on making this entire blog post about my opinion on RTO (hint: it isn’t favorable), or the various studies and anecdotes as to the effectiveness of remote work - but after thought I’ve decided to use this time to reflect on a certain piece of my work while at the lab and the direction I hope it takes now.
 
@@ -23,7 +23,7 @@ So let's explore it.
 
 ## The Early Days
 
-I started my work with INL as a subcontractor. I started on a large construction project, and while I can’t give you too many details I *can* talk about some of the interesting technology and problems I had to solve while working on that.
+I started my work as a subcontractor. I started on a large construction project, and while I can’t give you too many details I *can* talk about some of the interesting technology and problems I had to solve while working on that.
 
 
 ### Aveva Everything3D and .NET Hell
@@ -64,17 +64,17 @@ I have a lot of regrets about [DeepLynx](https://github.com/idaholab/Deep-Lynx/)
 * **Lack of *Developer* documentation**: While I made sure the code level comments were extensive \- I didn’t do a great job of explaining technology choices, the *why* behind a certain interface/application, or how I perceived a certain module or functionality to fit within the greater application. There was a lot about the future state of the project that I never got out into writing, which would have been beneficial in making sure all developers were on the same page.
 * **I accepted being a [BDFL](https://en.wikipedia.org/wiki/Benevolent_dictator_for_life)**: When we started to get new developers on the team, and when other projects used the application I would often monopolize the new development as well as interactions with those teams. It would have been better to empower and enable these people to work on the project themselves (through the points above) instead of saying “I’ll do it myself”. Pride cometh before the fall.
 * **Never clarified or defended a clarified goal**: [DeepLynx](https://github.com/idaholab/Deep-Lynx/) 1.x development suffered sometimes from the classic “be-everything” machine. For each project that needed something new we started seeing how we could incorporate this into [DeepLynx](https://github.com/idaholab/Deep-Lynx/) vs. using existing tools/libraries. There are many buried feature skeletons, as well features that never reached their full potential.
-* **Letting go**: While in my last two years of INL I was working on a project that required a larger amount of my time than usual. I used that as an excuse to get away from working on [DeepLynx](https://github.com/idaholab/Deep-Lynx/) \- and while I still offered occasional features (I tried to always offer help) I stayed out of its way too much. I abandoned the project at a crucial juncture, and just when we were getting a new junior team together. Because of that abandonment, [DeepLynx](https://github.com/idaholab/Deep-Lynx/) itself became something no one enjoyed working on. I have constantly underestimated how a single person’s enthusiasm and belief in a product can cause it to succeed \- and how the lack of it can just as swiftly lead to failure and pain. 
+* **Letting go**: While in my last two years I was working on a project that required a larger amount of my time than usual. I used that as an excuse to get away from working on [DeepLynx](https://github.com/idaholab/Deep-Lynx/) \- and while I still offered occasional features (I tried to always offer help) I stayed out of its way too much. I abandoned the project at a crucial juncture, and just when we were getting a new junior team together. Because of that abandonment, [DeepLynx](https://github.com/idaholab/Deep-Lynx/) itself became something no one enjoyed working on. I have constantly underestimated how a single person’s enthusiasm and belief in a product can cause it to succeed \- and how the lack of it can just as swiftly lead to failure and pain. 
 
 ## The Future
 
-At the start of this year I handed over the intellectual rights to a web application called Datum to INL. This was the start of a data catalog that I’d been working on in the Elixir/Erlang stack and something I was growing very proud of. I felt like it could be a boon to our work, even just as an experiment.
+At the start of this year I handed over the intellectual rights to a web application called Datum to the lab. This was the start of a data catalog that I’d been working on in the Elixir/Erlang stack and something I was growing very proud of. I felt like it could be a boon to our work, even just as an experiment.
 
 While it started out as a catalog, Datum swiftly became the choice to replace [DeepLynx](https://github.com/idaholab/Deep-Lynx/). We decided to keep the [DeepLynx](https://github.com/idaholab/Deep-Lynx/) name however, and simply began calling this [DeepLynx](https://github.com/idaholab/Deep-Lynx/) 2.0. We even announced it at StratDEC this year.
 
-It wasn’t to be, however, since at the same conference (after the presentation) we learned the news of INL’s RTO mandate. Unfortunately Datum, in its current form, will probably never see the light of day \- and that’s ok with me. I suggested, and it seems to have been followed, that without a senior engineer in that language and stack, that they shouldn’t attempt to deliver a production level application in the timeframe needed. While I suggested hiring \- I used this moment as an opportunity to evaluate whether the Elixir/Erlang stack would continue to be a good fit, and settled on no. I  made my suggestion and trusted that I could use the last of my goodwill at the company to steer them out of a potential minefield.
+It wasn’t to be, however, since at the same conference (after the presentation) we learned the news of the RTO mandate. Unfortunately Datum, in its current form, will probably never see the light of day \- and that’s ok with me. I suggested, and it seems to have been followed, that without a senior engineer in that language and stack, that they shouldn’t attempt to deliver a production level application in the timeframe needed. While I suggested hiring \- I used this moment as an opportunity to evaluate whether the Elixir/Erlang stack would continue to be a good fit, and settled on no. I  made my suggestion and trusted that I could use the last of my goodwill at the company to steer them out of a potential minefield.
 
-Last I heard, they were investigating C\# and .NET \- libraries and languages which INL has great internal support and which are widely adopted and used within the DOE.And they were investigating using various LakeHouse technologies that I’d PoCed in the past or suggested to them. So honestly, that makes me feel pretty good.
+Last I heard, they were investigating C\# and .NET \- libraries and languages which the lab has great internal support and which are widely adopted and used within the DOE.And they were investigating using various LakeHouse technologies that I’d PoCed in the past or suggested to them. So honestly, that makes me feel pretty good.
 
 [DeepLynx](https://github.com/idaholab/Deep-Lynx/) is now officially no longer part of my job responsibilities. Something I committed to at least every month for the last 6 years is now out of my hands. I’m partly proud and partly regretful of the work I did.
 
