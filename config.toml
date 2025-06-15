@@ -9,10 +9,10 @@ theme="site-theme"
 
 [params]
 	name = "Not Your Language"
-	description = "A Library of Go Snippets"
+	description = "You are not a programming language."
 	bio = "John Darrington"
 	author = "John Darrington"
-	enableRSS = false
+	enableRSS = true
 	enableDisqus = false
 	disqusShortname = "notyourlanguage"
 
