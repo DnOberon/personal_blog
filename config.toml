@@ -12,7 +12,7 @@ theme="site-theme"
 	description = "You are not a programming language."
 	bio = "John Darrington"
 	author = "John Darrington"
-	enableRSS = true
+	enableRSS = false
 	enableDisqus = false
 	disqusShortname = "notyourlanguage"
 
