@@ -1,7 +1,7 @@
 ---
 date: "2025-08-19"
 tags: ["rebeam", "python", "rust"]
-title: "Re:BEAM Pt. 3 - Communication Between Rust and Python"
+title: "Re:BEAM #3 - Communication Between Rust and Python"
 draft: "false"
 summary: "In this article we continue to explore the Re:BEAM project, a new Python runtime for running an actor framework. In this article we discuss communication between the Rust runtime and the Python code it executes. We explore and discuss a few options for this functionality."
 ---
